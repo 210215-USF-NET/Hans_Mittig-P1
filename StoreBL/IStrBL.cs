@@ -29,15 +29,6 @@ namespace StoreBL
          void ViewProducts(string invvalue, string locvalue);
 
          Product SelectProduct(string product);
-
-         void AddToCart(Customer customer, Location l, Product product, int q);
-
-         void AddToCartItems(Cart c, Product p, int q);
-
-         void AddCartItems(CartItems c);
-
-         void AddCart(Cart c);
-
         void AddOrder(decimal x, DateTime y, Customer c, Location l);         
         void AddOrderToDatabase(Orders order);
 
@@ -47,18 +38,11 @@ namespace StoreBL
 
          public List<OrderItems> AllOrderItems();
 
-         public Cart GetCart(int x);
-
-         public CartItems GetCartItems(int x);
-
          public Product GetProduct(int x);
 
          public Orders GetOrder(int x);
 
          public List<OrderItems> GetOrderByOrderID(int x);
-
-         public void DeleteCartItems(CartItems c);
-         public void DeleteCart(Cart c);
 
          public void UpdateInventory(Inventory inv1, Inventory inv2);
 

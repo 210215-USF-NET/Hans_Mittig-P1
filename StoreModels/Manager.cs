@@ -3,8 +3,23 @@ namespace StoreModels
 {
     public class Manager
     {
+        public int id;
         private String managerName;
         private String managerPassword;
+
+        public int Id
+        {
+            get { return id; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("Error. ID cannot be null.");
+                }
+                id = value;
+
+            }
+        }
         public String ManagerName
         {
         get{return managerName;}

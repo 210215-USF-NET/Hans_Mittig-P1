@@ -36,24 +36,13 @@ namespace StoreDL
 
          public List<OrderItems> AllOrderItems();
 
-         public void AddToCart(Customer c, Location l, Product p, int q);
-
-        public void AddCart(Model.Cart c);
-
-        public void AddToCartItems(Cart c, Product p, int q);
-
-        public void AddCartItems(CartItems c);
          public Manager ManagerSignInName(string name);
          public Manager ManagerSignInPassword(string password);
-         public Cart GetCart(int x);
-         public CartItems GetCartItems(int x);
          public Product GetProduct(int x);
          public Orders GetOrder(int x);
          public void AddOrderItems(Orders x, int y, Product p);
 
          public void AddOrderItemsToDatabase(OrderItems order);
-         public CartItems DeleteCartItems(CartItems c);
-         public Cart DeleteCart(Cart c);
 
          public void UpdateInventory(Inventory inv1);
 

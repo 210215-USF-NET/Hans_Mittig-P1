@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using StoreDL;
-using Entity = StoreDL.Entities;
+//using Entity = StoreDL.Entities;
 using StoreModels;
 
 namespace StoreBL
@@ -63,25 +63,6 @@ namespace StoreBL
         {
             return _repo.SelectProduct(product);
         }
-
-        public void AddToCart(Customer c, Location l, Product p, int q)
-        {
-            //return 
-            _repo.AddToCart(c,l, p, q);
-        }
-
-        public void AddCart(Cart c)
-        { _repo.AddCart(c);}
-
-        public void AddToCartItems(Cart c, Product p, int q)
-        {
-            _repo.AddToCartItems(c, p, q);
-        }
-
-        public void AddCartItems(CartItems c)
-        {
-            _repo.AddCartItems(c);
-        }
         public void AddOrder(decimal x, DateTime y, Customer c, Location l)
         {
             _repo.AddOrder(x, y, c, l);
@@ -110,17 +91,6 @@ namespace StoreBL
         {
             return _repo.AllOrderItems();
         }
-
-        public Cart GetCart(int x)
-        {
-            return _repo.GetCart(x);
-        }
-
-        public CartItems GetCartItems(int x)
-        {
-            return _repo.GetCartItems(x);
-        }
-
         public Product GetProduct(int x)
         {
             return _repo.GetProduct(x);
@@ -146,17 +116,6 @@ namespace StoreBL
         {
             _repo.AddOrderItemsToDatabase(order);
         }
-
-        public void DeleteCartItems(CartItems c)
-        {
-            _repo.DeleteCartItems(c);
-        }
-
-        public void DeleteCart(Cart c)
-        {
-            _repo.DeleteCart(c);
-        }
-
         public void UpdateInventory(Inventory inv1, Inventory inv2)
         {
             inv1.Quantity = inv2.Quantity;
