@@ -26,6 +26,15 @@ namespace StoreDL
         public DbSet<Orders> Orders { get; set; }
         public DbSet<OrderItems> OrderItems { get; set; }
 
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Customer>().Property(customer => customer.customerid).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Manager>().Property(manager => manager.id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Location>().Property(location => location.locationID).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Inventory>().Property(inventory => inventory.id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Product>().Property(product => product.id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Orders>().Property(order => order.id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<OrderItems>().Property(orderitem => orderitem.id).ValueGeneratedOnAdd();
+        }
     }
 }

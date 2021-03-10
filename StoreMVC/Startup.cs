@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using StoreBL;
 using StoreDL;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace StoreMVC
         {
             services.AddControllersWithViews();
             services.AddDbContext<StoreDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("StoreDB")));
+            services.AddScoped<IStoreRepository, StoreRepoDB>();
+            services.AddScoped<IStrBL, StrBL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
