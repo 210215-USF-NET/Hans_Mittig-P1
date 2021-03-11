@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using StoreBL;
-using StoreMVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,60 +7,48 @@ using System.Threading.Tasks;
 
 namespace StoreMVC.Controllers
 {
-    public class CustomerController : Controller
+    public class ManagerController : Controller
     {
-        private IStrBL _strBL;
-        private IMapper _mapper;
-        public CustomerController(IStrBL strBL, IMapper mapper)
-        {
-            _strBL = strBL;
-            _mapper = mapper;
-        }
-        // GET: CustomerController
+        // GET: ManagerController
         public ActionResult Index()
         {
-            return View(_strBL.GetCustomers().Select(customer => _mapper.cast2CustomerIndexVM(customer)).ToList());
+            return View();
         }
 
-        // GET: CustomerController/Details/5
+        // GET: ManagerController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: CustomerController/Create
+        // GET: ManagerController/Create
         public ActionResult Create()
         {
-            return View("CustomerCreate");
-        }
-
-        // POST: CustomerController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(CustomerCRVM newCustomer)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _strBL.AddCustomer(_mapper.cast2Customer(newCustomer));
-                    return RedirectToAction(nameof(Index));
-                }
-                catch
-                {
-                    return View();
-                }
-            }
             return View();
         }
 
-        // GET: CustomerController/Edit/5
+        // POST: ManagerController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: ManagerController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: CustomerController/Edit/5
+        // POST: ManagerController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -77,13 +63,13 @@ namespace StoreMVC.Controllers
             }
         }
 
-        // GET: CustomerController/Delete/5
+        // GET: ManagerController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: CustomerController/Delete/5
+        // POST: ManagerController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
