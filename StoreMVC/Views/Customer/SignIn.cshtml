@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "SignIn";
+}
+
+<h1>Welcome!</h1>
+<p>Here, customers can sign in to place and view orders.</p>
+<form action="/main_menu" method="POST">
+    <label for="CustomerName">Full Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="CustomerPassword">Password:</label>
+    <input type="text" id="password" name="password"><br><br>
+    <input type="submit" value="Submit">
+</form>

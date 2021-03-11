@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using StoreBL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,34 +7,27 @@ using System.Threading.Tasks;
 
 namespace StoreMVC.Controllers
 {
-    public class ManagerController : Controller
+    public class Inventory : Controller
     {
-        private IStrBL _strBL;
-       // private IMapper _mapper;
-        public ManagerController(IStrBL strBL)
-        {
-            _strBL = strBL;
-            //_mapper = mapper;
-        }
-        // GET: ManagerController
-        public ActionResult SignIn()
+        // GET: Inventory
+        public ActionResult Index()
         {
             return View();
         }
 
-        // GET: ManagerController/Details/5
+        // GET: Inventory/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: ManagerController/Create
+        // GET: Inventory/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ManagerController/Create
+        // POST: Inventory/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -50,13 +42,13 @@ namespace StoreMVC.Controllers
             }
         }
 
-        // GET: ManagerController/Edit/5
+        // GET: Inventory/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: ManagerController/Edit/5
+        // POST: Inventory/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -71,13 +63,13 @@ namespace StoreMVC.Controllers
             }
         }
 
-        // GET: ManagerController/Delete/5
+        // GET: Inventory/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: ManagerController/Delete/5
+        // POST: Inventory/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

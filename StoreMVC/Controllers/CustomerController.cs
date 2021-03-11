@@ -19,15 +19,25 @@ namespace StoreMVC.Controllers
             _mapper = mapper;
         }
         // GET: CustomerController
+
+        public ActionResult Register()
+        {
+            return View("CustomerCreate");
+        }
+
+        public ActionResult SignIn()
+        {
+            return View("SignIn");
+        }
         public ActionResult Index()
         {
             return View(_strBL.GetCustomers().Select(customer => _mapper.cast2CustomerIndexVM(customer)).ToList());
         }
 
         // GET: CustomerController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string name)
         {
-            return View();
+            return View(_mapper.cast2CustomerCRVM(_strBL.GetCustomerName(name)));
         }
 
         // GET: CustomerController/Create
@@ -78,9 +88,10 @@ namespace StoreMVC.Controllers
         }
 
         // GET: CustomerController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string name)
         {
-            return View();
+            //_strBL.DeleteCustomer(_strBL.GetCustomerName(name));
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: CustomerController/Delete/5

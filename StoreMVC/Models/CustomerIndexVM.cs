@@ -11,8 +11,8 @@ namespace StoreMVC.Models
         //public int customerid;
         public String customerName;
         public String customerPassword;
-        public int Customerid { get; set; }
-        [DisplayName("Customer Name")]
+        public int Id { get; set; }
+        [DisplayName("Manager Name")]
         public String CustomerName { get; set; }
         public String CustomerPassword { get; set; }
     }
