@@ -1,16 +1,31 @@
-﻿
+﻿@model StoreMVC.Models.ManagerIndexVM
 @{
     ViewData["Title"] = "SignIn";
 }
 
+<!DOCTYPE html>
+
 <h1>Welcome!</h1>
-<p>Here, managers can sign in to access special privileges.</p>
-<form action="/manager_menu">
-    <label for="name">Full Name:</label>
-    <input type="text" id="name" name="name"><br><br>
-    <label for="password">Password:</label>
-    <input type="text" id="password" name="password"><br><br>
-    <input type="submit" value="Submit">
-</form>
+<p>Here, managers can log in to access special privileges.</p>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="signin">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ManagerName" class="control-label"></label>
+                <input asp-for="ManagerName" class="form-control" />
+                <span asp-validation-for="ManagerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ManagerPassword" class="control-label"></label>
+                <input asp-for="ManagerPassword" class="form-control" />
+                <span asp-validation-for="ManagerPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
 
 

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using StoreModels;
 
 namespace StoreMVC.Controllers
 {
@@ -27,7 +28,13 @@ namespace StoreMVC.Controllers
 
         public ActionResult SignIn()
         {
-            return View("SignIn");
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Authorize()
+        {
+            return View();
         }
         public ActionResult Index()
         {

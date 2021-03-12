@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StoreBL;
+using StoreMVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,11 @@ namespace StoreMVC.Controllers
     public class ManagerController : Controller
     {
         private IStrBL _strBL;
-       // private IMapper _mapper;
-        public ManagerController(IStrBL strBL)
+        private IMapper _mapper;
+        public ManagerController(IStrBL strBL, IMapper mapper)
         {
             _strBL = strBL;
-            //_mapper = mapper;
+            _mapper = mapper;
         }
         // GET: ManagerController
         public ActionResult SignIn()

@@ -21,7 +21,7 @@ namespace StoreDL
             return newCustomer;
         }
 
-        public void AddOrder(decimal x, DateTime y, Customer c, Location l)
+        public Orders AddOrder(Orders order)
         {
             throw new NotImplementedException();
         }
@@ -48,15 +48,14 @@ namespace StoreDL
 
         public List<Orders> AllOrders()
         {
-            throw new NotImplementedException();
+            return _context.Orders.Select(order => order).ToList();
         }
 
         public Location ChooseLoc(string location)
         {
             throw new NotImplementedException();
         }
-
-        public Customer CustomerSignIn(string password)
+        public Customer GetCustomerPassword(string password)
         {
             throw new NotImplementedException();
         }

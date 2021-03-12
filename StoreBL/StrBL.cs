@@ -28,9 +28,9 @@ namespace StoreBL
             return _repo.GetCustomerName(name);
         }
 
-        public Customer CustomerSignIn(string password)
+        public Customer GetCustomerPassword(string password)
         {
-            return _repo.CustomerSignIn(password);
+            return _repo.GetCustomerPassword(password);
         }
 
         public List<Location> ViewLoc()
@@ -63,9 +63,9 @@ namespace StoreBL
         {
             return _repo.SelectProduct(product);
         }
-        public void AddOrder(decimal x, DateTime y, Customer c, Location l)
+        public Orders AddOrder(Orders order)
         {
-            _repo.AddOrder(x, y, c, l);
+            return _repo.AddOrder(order);
         }
 
         public void AddOrderToDatabase(Orders order)

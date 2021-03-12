@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using StoreBL;
+using StoreMVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +11,17 @@ namespace StoreMVC.Controllers
 {
     public class OrderController : Controller
     {
+        private IStrBL _strBL;
+        private IMapper _mapper;
+        public OrderController(IStrBL strBL, IMapper mapper)
+        {
+            _strBL = strBL;
+            _mapper = mapper;
+        }
         // GET: OrderController
         public ActionResult Index()
         {
-            return View();
+            return View(_strBL.AllOrders().Select(order => _mapper.ParseOrders(order)).ToList());
         }
 
         // GET: OrderController/Details/5

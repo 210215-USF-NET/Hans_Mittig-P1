@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace StoreMVC.Models
 {
+    [Serializable]
     public class CustomerCRVM
     {
         //public int Customerid { get; set; }

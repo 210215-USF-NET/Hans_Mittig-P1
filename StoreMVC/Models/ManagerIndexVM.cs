@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace StoreMVC.Models
 {
+    [Serializable]
     public class ManagerIndexVM
     {
-        private String managerName;
-        private String managerPassword;
+        public String managerName;
+        public String managerPassword;
 
-        public int Customerid { get; set; }
-        [DisplayName("Customer Name")]
+        public int Id { get; set; }
+        [DisplayName("Manager Name")]
         public String ManagerName { get; set; }
+        [DisplayName("Manager Password")]
         public String ManagerPassword { get; set; }
     }
 }

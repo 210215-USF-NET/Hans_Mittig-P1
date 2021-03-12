@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace StoreMVC.Models
 {
+    [Serializable]
     public class CustomerIndexVM
     {
         //public int customerid;

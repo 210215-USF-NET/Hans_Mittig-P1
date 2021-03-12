@@ -14,7 +14,7 @@ namespace StoreDL
 
          public List<OrderItems> GetOrderByOrderID(int x);
 
-         Customer CustomerSignIn(string password);
+         Customer GetCustomerPassword(string password);
 
          List<Location> ViewLoc();
 
@@ -28,7 +28,7 @@ namespace StoreDL
 
          Product SelectProduct(string product);
 
-         void AddOrder(decimal x, DateTime y, Customer c, Location l);
+         Orders AddOrder(Orders order);
 
          public void AddOrderToDatabase(Orders order);
 

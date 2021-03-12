@@ -52,5 +52,28 @@ namespace StoreMVC.Models
                 ManagerPassword = manager.ManagerPassword
             };
         }
+
+        public Orders ParseOrders(OrderCRVM order)
+        {
+            return new Orders
+            {
+                id = order.Id,
+                Total = order.Total,
+                Orderdate = order.orderdate,
+                customerid = order.Customerid,
+                locationid = order.Locationid
+            };
+        }
+
+        public OrderCRVM ParseOrders(Orders order)
+        {
+            return new OrderCRVM
+            {
+                Total = order.Total,
+                orderdate = order.Orderdate,
+                Customerid = order.Customerid.Value,
+                Locationid = order.Locationid.Value
+            };
+        }
     }
 }

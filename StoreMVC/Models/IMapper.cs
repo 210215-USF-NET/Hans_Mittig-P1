@@ -12,5 +12,9 @@ namespace StoreMVC.Models
         public ManagerIndexVM cast2ManagerIndexVM(Manager manager);
 
         public Manager cast2Manager(ManagerIndexVM manager);
+
+        public Orders ParseOrders(OrderCRVM order);
+
+        public OrderCRVM ParseOrders(Orders order);
     }
 }

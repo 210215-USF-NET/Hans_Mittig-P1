@@ -12,7 +12,7 @@ namespace StoreBL
 
          Customer GetCustomerName(string name);
 
-         Customer CustomerSignIn(string password);
+         Customer GetCustomerPassword(string password);
 
          List<Location> ViewLoc();
 
@@ -29,8 +29,7 @@ namespace StoreBL
          void ViewProducts(string invvalue, string locvalue);
 
          Product SelectProduct(string product);
-        void AddOrder(decimal x, DateTime y, Customer c, Location l);         
-        void AddOrderToDatabase(Orders order);
+        Orders AddOrder(Orders order);
 
         public void AddOrderItems(Orders x, int y, Product p);
 
