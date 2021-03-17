@@ -11,6 +11,7 @@ namespace StoreMVC.Models
     public class CustomerCRVM
     {
         //public int Customerid { get; set; }
+        public int id { get; set; }
         [DisplayName("Customer Name")]
         [Required]
         public String CustomerName { get; set; }

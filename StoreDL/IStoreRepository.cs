@@ -20,13 +20,15 @@ namespace StoreDL
 
          Location ChooseLoc(string location);
 
-         void ViewInventory(string locvalue);
+        Location ChooseLocById(int id);
+
+        void ViewInventory(string locvalue);
 
          Inventory SelectInventory(string inventory);
 
-         void ViewProducts(string invvalue, string locvalue);
+         public List<Product> ViewProducts();
 
-         Product SelectProduct(string product);
+         Product SelectProduct(int x);
 
          Orders AddOrder(Orders order);
 
@@ -38,13 +40,17 @@ namespace StoreDL
 
          public Manager ManagerSignInName(string name);
          public Manager ManagerSignInPassword(string password);
-         public Product GetProduct(int x);
+         public List<Product> GetProductByLocID(int x);
          public Orders GetOrder(int x);
-         public void AddOrderItems(Orders x, int y, Product p);
+         public OrderItems AddOrderItems(OrderItems oitems);
+
+        public List<Orders> GetOrdersByCustID(int x);
+
+        public List<Orders> GetOrdersByLocID(int x);
 
          public void AddOrderItemsToDatabase(OrderItems order);
 
-         public void UpdateInventory(Inventory inv1);
+        public Product UpdateInventory(Product inv1);
 
          public Inventory GetInventoryById(int prodId, int locId);
     }

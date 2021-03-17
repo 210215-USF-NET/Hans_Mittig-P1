@@ -1,0 +1,21 @@
+﻿@model StoreMVC.Models.OrderCRVM
+@{
+    ViewData["Title"] = "Updated";
+}
+
+<h1>Thank You</h1>
+@*<h4>Product: @ViewData["Name"]</h4>
+<h4>Original Quantity: @ViewData["Old Quantity"]</h4>
+<h4>New Quantity: @ViewData["New Quantity"]</h4>*@
+<hr />
+<article>Your inventory has been updated.</article>
+
+<div>
+    @*<a asp-action="../Home/Index">Back to Main Menu</a>*@
+    <button type="button" onclick="location.href='@Url.Action("Index", "Home")'" />Back to Home
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

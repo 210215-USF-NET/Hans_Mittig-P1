@@ -23,12 +23,16 @@ namespace StoreDL
 
         public Orders AddOrder(Orders order)
         {
-            throw new NotImplementedException();
+            _context.Orders.Add(order);
+            _context.SaveChanges();
+            return order;
         }
 
-        public void AddOrderItems(Orders x, int y, Product p)
+        public OrderItems AddOrderItems(OrderItems oitems)
         {
-            throw new NotImplementedException();
+            _context.OrderItems.Add(oitems);
+            _context.SaveChanges();
+            return oitems;
         }
 
         public void AddOrderItemsToDatabase(OrderItems order)
@@ -53,16 +57,21 @@ namespace StoreDL
 
         public Location ChooseLoc(string location)
         {
-            throw new NotImplementedException();
+            return _context.Locations.FirstOrDefault(locationn => locationn.locationName == location);
+        }
+
+        public Location ChooseLocById(int id)
+        {
+            return _context.Locations.FirstOrDefault(locationn => locationn.id == id);
         }
         public Customer GetCustomerPassword(string password)
         {
-            throw new NotImplementedException();
+            return _context.Customers.FirstOrDefault(customer => customer.customerPassword == password);
         }
 
         public Customer GetCustomerName(string name)
         {
-            return _context.Customers.FirstOrDefault(customer => customer.CustomerName == name);
+            return _context.Customers.FirstOrDefault(customer => customer.customerName == name);
         }
 
         public List<Customer> GetCustomers()
@@ -80,24 +89,37 @@ namespace StoreDL
             throw new NotImplementedException();
         }
 
+        public List<Orders> GetOrdersByCustID(int x)
+        {
+            List <Orders> ordlist = AllOrders();
+            return ordlist.Select(O => O).Where(O => O.customerid == x).ToList();
+        }
+
+        public List<Orders> GetOrdersByLocID(int x)
+        {
+            List<Orders> ordlist = AllOrders();
+            return ordlist.Select(O => O).Where(O => O.locationid == x).ToList();
+        }
+
         public List<OrderItems> GetOrderByOrderID(int x)
         {
             throw new NotImplementedException();
         }
 
-        public Product GetProduct(int x)
+        public List<Product> GetProductByLocID(int x)
         {
-            throw new NotImplementedException();
+            List<Product> prodlist = ViewProducts();
+             return  prodlist.Select(O => O).Where(O => O.locationid == x).ToList();
         }
 
         public Manager ManagerSignInName(string name)
         {
-            throw new NotImplementedException();
+            return _context.Managers.FirstOrDefault(manager => manager.managerName == name);
         }
 
         public Manager ManagerSignInPassword(string password)
         {
-            throw new NotImplementedException();
+            return _context.Managers.FirstOrDefault(manager => manager.managerPassword == password);
         }
 
         public Inventory SelectInventory(string inventory)
@@ -105,14 +127,18 @@ namespace StoreDL
             throw new NotImplementedException();
         }
 
-        public Product SelectProduct(string product)
+        public Product SelectProduct(int x)
         {
-            throw new NotImplementedException();
+            return _context.Products.FirstOrDefault(product => product.id == x);
         }
 
-        public void UpdateInventory(Inventory inv1)
+        public Product UpdateInventory(Product inv1)
         {
-            throw new NotImplementedException();
+            Product oldinv = _context.Products.Find(inv1.id);
+            _context.Entry(oldinv).CurrentValues.SetValues(inv1);
+            _context.SaveChanges();
+            _context.ChangeTracker.Clear();
+            return inv1;
         }
 
         public void ViewInventory(string locvalue)
@@ -122,12 +148,12 @@ namespace StoreDL
 
         public List<Location> ViewLoc()
         {
-            throw new NotImplementedException();
+            return _context.Locations.Select(location => location).ToList();
         }
 
-        public void ViewProducts(string invvalue, string locvalue)
+        public List<Product> ViewProducts()
         {
-            throw new NotImplementedException();
+            return _context.Products.Select(customer => customer).ToList();
         }
     }
 }

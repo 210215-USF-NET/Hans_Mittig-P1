@@ -13,16 +13,16 @@ namespace StoreMVC.Models
             return new CustomerIndexVM
             {
                 //customerid = customer.customerid,
-                customerName = customer.CustomerName,
-                customerPassword = customer.CustomerPassword
+                customerName = customer.customerName,
+                customerPassword = customer.customerPassword
             };
         }
         public Customer cast2Customer(CustomerCRVM newCustomer)
         {
             return new Customer
             {
-                CustomerName = newCustomer.CustomerName,
-                CustomerPassword = newCustomer.CustomerPassword
+                customerName = newCustomer.CustomerName,
+                customerPassword = newCustomer.CustomerPassword
             };
         }
 
@@ -30,8 +30,8 @@ namespace StoreMVC.Models
         {
             return new CustomerCRVM
             {
-                CustomerName = customer.CustomerName,
-                CustomerPassword = customer.CustomerPassword
+                CustomerName = customer.customerName,
+                CustomerPassword = customer.customerPassword
             };
         }
 
@@ -39,8 +39,8 @@ namespace StoreMVC.Models
         {
             return new ManagerIndexVM
             {
-                ManagerName = manager.ManagerName,
-                ManagerPassword = manager.ManagerPassword
+                ManagerName = manager.managerName,
+                ManagerPassword = manager.managerPassword
             };
         }
 
@@ -48,18 +48,44 @@ namespace StoreMVC.Models
         {
             return new Manager
             {
-                ManagerName = manager.ManagerName,
-                ManagerPassword = manager.ManagerPassword
+                managerName = manager.ManagerName,
+                managerPassword = manager.ManagerPassword
             };
         }
 
+        public Product cast2Product(ProductVM product)
+        {
+            return new Product
+            {
+                id = product.id,
+                name = product.name,
+                description = product.description,
+                price = product.price,
+                quantity = product.quantity,
+                locationid = product.locationid
+
+            };
+        }
+
+        public ProductVM cast2ProductVM(Product product)
+        {
+            return new ProductVM
+            {
+                id = product.id,
+                name = product.name,
+                description = product.description,
+                price = product.price,
+                quantity = product.quantity,
+                locationid = product.locationid
+            };
+        }
         public Orders ParseOrders(OrderCRVM order)
         {
             return new Orders
             {
                 id = order.Id,
-                Total = order.Total,
-                Orderdate = order.orderdate,
+                total = order.Total,
+                orderdate = order.Orderdate,
                 customerid = order.Customerid,
                 locationid = order.Locationid
             };
@@ -69,10 +95,11 @@ namespace StoreMVC.Models
         {
             return new OrderCRVM
             {
-                Total = order.Total,
-                orderdate = order.Orderdate,
-                Customerid = order.Customerid.Value,
-                Locationid = order.Locationid.Value
+                Id = order.id,
+                Total = order.total,
+                Orderdate = order.orderdate,
+                Customerid = order.customerid.Value,
+                Locationid = order.locationid.Value
             };
         }
     }

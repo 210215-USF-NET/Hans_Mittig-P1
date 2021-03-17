@@ -3,80 +3,17 @@ namespace StoreModels
 {
     public class Orders
     {
-        public int id;
+        public int id { get; set; }
 
-        public decimal total;
+        public decimal total { get; set; }
 
-        public DateTime orderdate;
+        public DateTime orderdate { get; set; }
 
-        public int? customerid;
+        public int? customerid { get; set; }
+        // Customer should be data type
 
-        public int? locationid;
+        public int? locationid { get; set; }
 
-        public int Id
-        {
-        get{return id;}
-        set 
-        {
-            if(value == null ) 
-            {throw new ArgumentNullException("Error. ID cannot be null.");
-            }
-            id = value;
-
-        }
-        }
-
-        public decimal Total
-        {
-        get{return total;}
-        set 
-        {
-            if(value == null ) 
-            {throw new ArgumentNullException("Error. total cannot be null.");
-            }
-            total = value;
-
-        }
-        }
-
-        public DateTime Orderdate
-        {
-        get{return orderdate;}
-        set 
-        {
-            if(value == null ) 
-            {throw new ArgumentNullException("Error. ID cannot be null.");
-            }
-            orderdate = value;
-
-        }
-        }
-
-        public int? Customerid
-        {
-        get{return customerid;}
-        set 
-        {
-            if(value == null ) 
-            {throw new ArgumentNullException("Error. ID cannot be null.");
-            }
-            customerid = value;
-
-        }
-        }
-
-        public int? Locationid
-        {
-        get{return locationid;}
-        set 
-        {
-            if(value == null ) 
-            {throw new ArgumentNullException("Error. ID cannot be null.");
-            }
-            locationid = value;
-
-        }
-        }
         public override string ToString() => $"Total: ${this.total} Date: {this.orderdate}";
 
     }

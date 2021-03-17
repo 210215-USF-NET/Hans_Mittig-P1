@@ -1,0 +1,17 @@
+﻿@model StoreMVC.Models.CustomerCRVM
+
+@{
+    ViewData["Title"] = "Success";
+}
+
+<h1>Success</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>Customer @ViewData["Name"] was found in the system.</h3>
+    </div>
+</div>
+ <div>
+     @*<a asp-action="../Home/Index">Back to Main Menu</a>*@
+     <button type="button" onclick="location.href='@Url.Action("Index", "Home")'" />Back to Main Menu
+ </div>

@@ -16,9 +16,11 @@ namespace StoreBL
 
          List<Location> ViewLoc();
 
-         Location ChooseLoc(string location);
+        Location ChooseLoc(string location);
 
-         Manager ManagerSignInName(string name);
+        public Location ChooseLocById(int id);
+
+        Manager ManagerSignInName(string name);
 
          Manager ManagerSignInPassword(string password);
 
@@ -26,24 +28,28 @@ namespace StoreBL
 
          Inventory InventorySelect(string inventory);
 
-         void ViewProducts(string invvalue, string locvalue);
+         public List<Product> ViewProducts();
 
-         Product SelectProduct(string product);
+         Product SelectProduct(int x);
         Orders AddOrder(Orders order);
 
-        public void AddOrderItems(Orders x, int y, Product p);
+        public void AddOrderItems(OrderItems oitems);
 
          List<Orders> AllOrders();
 
+        List<Orders> GetOrdersByCustID(int x);
+
+        public List<Orders> GetOrdersByLocID(int x);
+
          public List<OrderItems> AllOrderItems();
 
-         public Product GetProduct(int x);
+         public List<Product> GetProductByLocID(int x);
 
          public Orders GetOrder(int x);
 
          public List<OrderItems> GetOrderByOrderID(int x);
 
-         public void UpdateInventory(Inventory inv1, Inventory inv2);
+         public Product UpdateInventory(Product inv1);
 
          public Inventory GetInventoryById(int prodId, int locId);
     }

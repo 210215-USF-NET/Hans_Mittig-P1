@@ -43,6 +43,11 @@ namespace StoreBL
             return _repo.ChooseLoc(location);
         }
 
+        public Location ChooseLocById(int id)
+        {
+            return _repo.ChooseLocById(id);
+        }
+
 
         public void ViewInventory(string locvalue)
         {
@@ -54,14 +59,14 @@ namespace StoreBL
             return _repo.SelectInventory(inventory);
         }
 
-        public void ViewProducts(string invvalue, string locvalue)
+        public List<Product> ViewProducts()
         {
-            _repo.ViewProducts(invvalue, locvalue);
+            return _repo.ViewProducts();
         }
 
-        public Product SelectProduct(string product)
+        public Product SelectProduct(int x)
         {
-            return _repo.SelectProduct(product);
+            return _repo.SelectProduct(x);
         }
         public Orders AddOrder(Orders order)
         {
@@ -87,13 +92,22 @@ namespace StoreBL
             return _repo.AllOrders();
         }
 
+        public List<Orders> GetOrdersByCustID(int x)
+        {
+            return _repo.GetOrdersByCustID(x);
+        }
+
+        public List<Orders> GetOrdersByLocID(int x)
+        {
+            return _repo.GetOrdersByLocID(x);
+        }
         public List<OrderItems> AllOrderItems()
         {
             return _repo.AllOrderItems();
         }
-        public Product GetProduct(int x)
+        public List<Product> GetProductByLocID(int x)
         {
-            return _repo.GetProduct(x);
+            return _repo.GetProductByLocID(x);
         }
 
         public Orders GetOrder(int x)
@@ -107,20 +121,18 @@ namespace StoreBL
         }
 
 
-        public void AddOrderItems(Orders x, int y, Product p)
+        public void AddOrderItems(OrderItems oitems)
         {
-             _repo.AddOrderItems(x, y, p);
+             _repo.AddOrderItems(oitems);
         }
 
         public void AddOrderItemsToDatabase(OrderItems order)
         {
             _repo.AddOrderItemsToDatabase(order);
         }
-        public void UpdateInventory(Inventory inv1, Inventory inv2)
-        {
-            inv1.Quantity = inv2.Quantity;
-            
-            _repo.UpdateInventory(inv1);
+        public Product UpdateInventory(Product inv1)
+        { 
+            return _repo.UpdateInventory(inv1);
         }
 
         public Inventory GetInventoryById(int prodId, int locId)

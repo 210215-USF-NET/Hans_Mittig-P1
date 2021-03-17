@@ -1,0 +1,31 @@
+﻿@model StoreMVC.Models.ManagerIndexVM
+
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<h1>Manager Menu</h1>
+<hr />
+
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <h4>Welcome @ViewData["Name"]! Please choose from one of the options below:</h4>
+    </div>
+</div>
+<br />
+<div>
+    <button type="button" onclick="location.href='@Url.Action("SelectLoc", "Location")'" />View Order History by Location
+</div>
+<br />
+<div>
+    <button type="button" onclick="location.href='@Url.Action("SelectInventory", "Location")'" />Replenish an Inventory
+</div>
+<br />
+<div>
+    <button type="button" onclick="location.href='@Url.Action("Index", "Home")'" />Back to Main Menu
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

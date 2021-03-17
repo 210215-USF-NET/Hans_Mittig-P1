@@ -1,0 +1,22 @@
+﻿@model StoreMVC.Models.OrderCRVM
+
+@{
+    ViewData["Title"] = "Finalize Order";
+}
+
+<h1>Place an order</h1>
+<h2>Thank You</h2>
+<h4>Product: @ViewData["Product"]</h4>
+<h4>Quantity: @ViewData["Quantity"]</h4>
+<h4>Total: $@ViewData["Total"]</h4>
+<hr />
+<article>Come again soon!</article>
+
+<div>
+@*<a asp-action="../Home/Index">Back to Main Menu</a>*@
+<button type="button" onclick="location.href='@Url.Action("Index", "Home")'" />Back to Home
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

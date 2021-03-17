@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,8 +15,10 @@ namespace StoreMVC.Models
 
         public int Id { get; set; }
         [DisplayName("Manager Name")]
+        [Required]
         public String ManagerName { get; set; }
         [DisplayName("Manager Password")]
+        [Required]
         public String ManagerPassword { get; set; }
     }
 }

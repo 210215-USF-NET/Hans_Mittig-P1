@@ -9,6 +9,10 @@ namespace StoreMVC.Models
 
         CustomerCRVM cast2CustomerCRVM(Customer customer);
 
+        Product cast2Product(ProductVM product);
+
+        ProductVM cast2ProductVM(Product product);
+
         public ManagerIndexVM cast2ManagerIndexVM(Manager manager);
 
         public Manager cast2Manager(ManagerIndexVM manager);

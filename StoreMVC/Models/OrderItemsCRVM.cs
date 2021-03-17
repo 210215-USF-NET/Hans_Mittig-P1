@@ -7,5 +7,9 @@ namespace StoreMVC.Models
 {
     public class OrderItemsCRVM
     {
+        public int id { get; set; }
+        public int? orderid { get; set; }
+        public int quantity { get; set; }
+        public int? productid { get; set; }
     }
 }

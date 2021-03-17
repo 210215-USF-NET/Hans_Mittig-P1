@@ -21,176 +21,123 @@ namespace StoreDL.Migrations
 
             modelBuilder.Entity("StoreModels.Customer", b =>
                 {
-                    b.Property<int>("CustomerID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("CustomerName")
-                        .HasColumnType("text");
-
-                    b.Property<string>("CustomerPassword")
-                        .HasColumnType("text");
-
-                    b.Property<int>("customerid")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.HasKey("CustomerID");
-
-                    b.ToTable("Customers");
-                });
-
-            modelBuilder.Entity("StoreModels.Inventory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("InventoryName")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("Locationid")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Productid")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("integer");
-
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.HasKey("Id");
+                    b.Property<string>("customerName")
+                        .HasColumnType("text");
 
-                    b.ToTable("Inventories");
+                    b.Property<string>("customerPassword")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("StoreModels.Location", b =>
                 {
-                    b.Property<int>("Locationid")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<string>("LocationName")
+                    b.Property<string>("locationName")
                         .HasColumnType("text");
 
-                    b.Property<int>("locationID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.HasKey("Locationid");
+                    b.HasKey("id");
 
                     b.ToTable("Locations");
                 });
 
             modelBuilder.Entity("StoreModels.Manager", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("ManagerName")
-                        .HasColumnType("text");
-
-                    b.Property<string>("ManagerPassword")
-                        .HasColumnType("text");
-
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.HasKey("Id");
+                    b.Property<string>("managerName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("managerPassword")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
 
                     b.ToTable("Managers");
                 });
 
             modelBuilder.Entity("StoreModels.OrderItems", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int?>("Orderid")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("Productid")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("integer");
-
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.HasKey("Id");
+                    b.Property<int?>("orderid")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("productid")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("quantity")
+                        .HasColumnType("integer");
+
+                    b.HasKey("id");
 
                     b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("StoreModels.Orders", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int?>("Customerid")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("Locationid")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("Orderdate")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<decimal>("Total")
-                        .HasColumnType("numeric");
-
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.HasKey("Id");
+                    b.Property<int?>("customerid")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("locationid")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("orderdate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<decimal>("total")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("id");
 
                     b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("StoreModels.Product", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("numeric");
-
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.HasKey("Id");
+                    b.Property<string>("description")
+                        .HasColumnType("text");
+
+                    b.Property<int>("locationid")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("name")
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("price")
+                        .HasColumnType("numeric");
+
+                    b.Property<int>("quantity")
+                        .HasColumnType("integer");
+
+                    b.HasKey("id");
 
                     b.ToTable("Products");
                 });

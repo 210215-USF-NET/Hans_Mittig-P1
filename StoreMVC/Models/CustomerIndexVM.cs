@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,12 +10,12 @@ namespace StoreMVC.Models
     [Serializable]
     public class CustomerIndexVM
     {
-        //public int customerid;
-        public String customerName;
-        public String customerPassword;
-        public int Id { get; set; }
-        [DisplayName("Manager Name")]
-        public String CustomerName { get; set; }
-        public String CustomerPassword { get; set; }
+        public int id { get; set; }
+        [DisplayName("Customer Name")]
+        [Required]
+        public String customerName { get; set; }
+        [DisplayName("Password")]
+        [Required]
+        public String customerPassword { get; set; }
     }
 }

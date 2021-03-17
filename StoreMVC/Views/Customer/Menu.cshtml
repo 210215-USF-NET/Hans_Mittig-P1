@@ -1,0 +1,31 @@
+﻿@model StoreMVC.Models.OrderCRVM
+
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<h1>Customer Menu</h1>
+<hr />
+
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <h4>Welcome @ViewData["Name"]! Please choose from one of the options below:</h4>
+    </div>
+</div>
+<br />
+<div>
+    <button type="button" onclick="location.href='@Url.Action("Select", "Location")'" />Place an order
+</div>
+<br />
+<div>
+    <button type="button" onclick="location.href='@Url.Action("CustomerOrders", "Order")'" />View your order history
+</div>
+<br />
+<div>
+    <button type="button" onclick="location.href='@Url.Action("Index", "Home")'" />Back to Main Menu
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
