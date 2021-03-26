@@ -31,3 +31,5 @@ Manager:
 - Azure DevOps
 - ASP.NET MVC
 
+# License
+This project is licensed under the [MIT License.](https://github.com/git/git-scm.com/blob/master/MIT-LICENSE.txt)
