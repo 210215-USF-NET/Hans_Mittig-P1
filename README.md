@@ -12,7 +12,7 @@ Two main roles:
 - Customer
 - Manager
 
-# Functionality
+# Features
 Customer:
 - Register a new customer
 - Lookup customers in database
@@ -23,7 +23,7 @@ Manager:
 - View order history by location
 - Replenish inventory by location
 
-# Tech Stack
+# Technologies Used
 - C#
 - PostgreSQL DB
 - EF Core
